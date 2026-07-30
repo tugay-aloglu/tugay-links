@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <div class="profile-image">
-    <img src="channels4_profile.jpg">
-</div>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -50,7 +47,6 @@
       overflow: hidden;
     }
 
-    /* Horizon gradient */
     .grid-bg::before {
       content: '';
       position: absolute;
@@ -61,7 +57,6 @@
         radial-gradient(ellipse 100% 60% at 50% -10%, rgba(0,229,255,0.06) 0%, transparent 70%);
     }
 
-    /* Vertical lines */
     .grid-bg::after {
       content: '';
       position: absolute;
@@ -71,20 +66,8 @@
       width: 200%;
       height: 60%;
       background-image:
-        repeating-linear-gradient(
-          90deg,
-          rgba(255,45,120,0.12) 0px,
-          rgba(255,45,120,0.12) 1px,
-          transparent 1px,
-          transparent 60px
-        ),
-        repeating-linear-gradient(
-          0deg,
-          rgba(255,45,120,0.08) 0px,
-          rgba(255,45,120,0.08) 1px,
-          transparent 1px,
-          transparent 40px
-        );
+        repeating-linear-gradient(90deg, rgba(255,45,120,0.12) 0px, rgba(255,45,120,0.12) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(0deg, rgba(255,45,120,0.08) 0px, rgba(255,45,120,0.08) 1px, transparent 1px, transparent 40px);
       mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
       -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
     }
@@ -115,6 +98,26 @@
       align-items: center;
     }
 
+    /* ── Profile image ── */
+    .profile-image {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--neon-pink);
+      box-shadow:
+        0 0 20px rgba(255,45,120,0.6),
+        0 0 50px rgba(0,229,255,0.3);
+      margin-bottom: 0.25rem;
+      flex-shrink: 0;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     /* ── Header ── */
     .header {
       text-align: center;
@@ -125,22 +128,11 @@
       gap: 0.6rem;
     }
 
-    /* City silhouette decorative line */
     .city-line {
       width: 180px;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--neon-pink), var(--neon-cyan), transparent);
-      margin-bottom: 0.5rem;
-    }
-
-    .eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 12px rgba(0,229,255,0.6);
+      margin-bottom: 0.25rem;
     }
 
     .name {
@@ -148,20 +140,11 @@
       font-size: 4.2rem;
       line-height: 0.92;
       letter-spacing: 2px;
-      /* Dual neon gradient */
       background: linear-gradient(160deg, #FF2D78 0%, #FF80AB 40%, #00E5FF 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       filter: drop-shadow(0 0 18px rgba(255,45,120,0.5));
-    }
-
-    .tagline {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 0.15rem;
     }
 
     /* Live badge */
@@ -178,7 +161,6 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #FF80AB;
-      margin-top: 0.3rem;
       box-shadow: 0 0 12px rgba(255,45,120,0.2), inset 0 0 8px rgba(255,45,120,0.05);
     }
 
@@ -215,7 +197,6 @@
       color: var(--text);
       position: relative;
       transition: transform 0.22s cubic-bezier(.22,1,.36,1), box-shadow 0.22s ease;
-      /* Neon border via pseudo */
       border: 1px solid rgba(255,255,255,0.06);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -230,22 +211,21 @@
       bottom: 8px;
       width: 3px;
       border-radius: 2px;
-      transition: height 0.2s, box-shadow 0.2s;
     }
 
-    .link-card.youtube::before  { background: var(--neon-pink); box-shadow: 0 0 8px var(--neon-pink); }
-    .link-card.bynogame::before { background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); }
-    .link-card.oyunfor::before  { background: var(--neon-purple); box-shadow: 0 0 8px var(--neon-purple); }
+    .link-card.youtube::before   { background: var(--neon-pink);   box-shadow: 0 0 8px var(--neon-pink); }
+    .link-card.bynogame::before  { background: var(--neon-cyan);   box-shadow: 0 0 8px var(--neon-cyan); }
+    .link-card.oyunfor::before   { background: var(--neon-purple); box-shadow: 0 0 8px var(--neon-purple); }
     .link-card.instagram::before { background: linear-gradient(180deg, #FF2D78, #B14AFF); box-shadow: 0 0 8px #B14AFF; }
+    .link-card.discord::before   { background: #5865F2; box-shadow: 0 0 8px #5865F2; }
 
-    .link-card:hover {
-      transform: translateY(-4px) scale(1.01);
-    }
+    .link-card:hover { transform: translateY(-4px) scale(1.01); }
 
-    .link-card.youtube:hover  { box-shadow: 0 0 28px rgba(255,45,120,0.35), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(255,45,120,0.35); }
-    .link-card.bynogame:hover { box-shadow: 0 0 28px rgba(0,229,255,0.3),  0 8px 32px rgba(0,0,0,0.5); border-color: rgba(0,229,255,0.35); }
-    .link-card.oyunfor:hover  { box-shadow: 0 0 28px rgba(177,74,255,0.35), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(177,74,255,0.35); }
-    .link-card.instagram:hover { box-shadow: 0 0 28px rgba(177,74,255,0.3), 0 8px 32px rgba(0,0,0,0.5); border-color: rgba(177,74,255,0.3); }
+    .link-card.youtube:hover   { box-shadow: 0 0 28px rgba(255,45,120,0.35),  0 8px 32px rgba(0,0,0,0.5); border-color: rgba(255,45,120,0.35); }
+    .link-card.bynogame:hover  { box-shadow: 0 0 28px rgba(0,229,255,0.3),    0 8px 32px rgba(0,0,0,0.5); border-color: rgba(0,229,255,0.35); }
+    .link-card.oyunfor:hover   { box-shadow: 0 0 28px rgba(177,74,255,0.35),  0 8px 32px rgba(0,0,0,0.5); border-color: rgba(177,74,255,0.35); }
+    .link-card.instagram:hover { box-shadow: 0 0 28px rgba(177,74,255,0.3),   0 8px 32px rgba(0,0,0,0.5); border-color: rgba(177,74,255,0.3); }
+    .link-card.discord:hover   { box-shadow: 0 0 28px rgba(88,101,242,0.35),  0 8px 32px rgba(0,0,0,0.5); border-color: rgba(88,101,242,0.35); }
 
     .card-icon {
       width: 42px;
@@ -261,12 +241,14 @@
     .bynogame .card-icon  { background: rgba(0,229,255,0.10); }
     .oyunfor .card-icon   { background: rgba(177,74,255,0.12); }
     .instagram .card-icon { background: rgba(177,74,255,0.10); }
+    .discord .card-icon   { background: rgba(88,101,242,0.12); }
 
     .card-icon svg { width: 22px; height: 22px; }
     .youtube   .card-icon svg { color: #FF2D78; filter: drop-shadow(0 0 5px rgba(255,45,120,0.7)); }
     .bynogame  .card-icon svg { color: #00E5FF; filter: drop-shadow(0 0 5px rgba(0,229,255,0.7)); }
     .oyunfor   .card-icon svg { color: #B14AFF; filter: drop-shadow(0 0 5px rgba(177,74,255,0.7)); }
     .instagram .card-icon svg { color: #FF80AB; filter: drop-shadow(0 0 5px rgba(177,74,255,0.6)); }
+    .discord   .card-icon svg { color: #5865F2; filter: drop-shadow(0 0 5px rgba(88,101,242,0.7)); }
 
     .card-text { flex: 1; min-width: 0; }
 
@@ -293,6 +275,7 @@
     .bynogame:hover  .card-arrow { color: #00E5FF; transform: translateX(4px); }
     .oyunfor:hover   .card-arrow { color: #B14AFF; transform: translateX(4px); }
     .instagram:hover .card-arrow { color: #FF80AB; transform: translateX(4px); }
+    .discord:hover   .card-arrow { color: #5865F2; transform: translateX(4px); }
 
     /* ── Footer ── */
     .footer {
@@ -313,24 +296,6 @@
       .link-card { transition: none; }
       .live-dot  { animation: none; }
     }
-
-    .profile-image {
-    width:110px;
-    height:110px;
-    border-radius:50%;
-    overflow:hidden;
-    border:2px solid var(--neon-pink);
-    box-shadow:
-        0 0 20px rgba(255,45,120,.6),
-        0 0 50px rgba(0,229,255,.3);
-    margin-bottom:1rem;
-}
-
-.profile-image img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
   </style>
 </head>
 <body>
@@ -342,6 +307,9 @@
 
   <!-- Header -->
   <div class="header">
+    <div class="profile-image">
+      <img src="channels4_profile.jpg" alt="Tugay Aloğlu" />
+    </div>
     <div class="city-line"></div>
     <div class="name">Tugay<br>Aloğlu</div>
     <div class="live-badge">
@@ -436,10 +404,29 @@
       </svg>
     </a>
 
+    <!-- Discord -->
+    <a class="link-card discord"
+       href="https://discord.gg/PWbqgJD5g6"
+       target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03z"/>
+        </svg>
+      </div>
+      <div class="card-text">
+        <div class="card-label">Discord</div>
+        <div class="card-desc">Sunucuya katıl</div>
+      </div>
+      <svg class="card-arrow" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+           fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+
   </div>
 
   <div class="footer">
-    &copy; 2026 Tugay Aloğlu
+    &copy; 2026 Tugay Aloğlu &mdash; <span>Vice City</span> ruhuyla
   </div>
 
 </div>
